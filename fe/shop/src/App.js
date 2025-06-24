@@ -1,29 +1,77 @@
-import React from "react";
-import { Tabs } from 'antd';
+import { Fragment } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { publicRoutes, privateRoutes } from './routes';
+import { DefaultLayout } from './layouts';
+import ProtectedRoute from './routes/protectedRoute';
+import PublicRoute from './routes/publicRoute';
 
-const onChange = key => {
-  console.log(key);
-};
-const items = [
-  {
-    key: '1',
-    label: 'Tab 1',
-    children: 'Content of Tab Pane 1',
-  },
-  {
-    key: '2',
-    label: 'Tab 2',
-    children: 'Content of Tab Pane 2',
-  },
-  {
-    key: '3',
-    label: 'Tab 3',
-    children: 'Content of Tab Pane 3',
-  },
-];
 function App() {
   return (
-    <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+    <Router>
+      <div className="App">
+        <Routes>
+          {/* Public routes */}
+          {publicRoutes.map((route, index) => {
+            const Page = route.component;
+
+            let Layout;
+            if (route.layout === null) {
+              Layout = Fragment;
+            } else if (route.layout) {
+              Layout = route.layout;
+            } else {
+              Layout = DefaultLayout;
+            }
+
+            const element = (
+              <Layout>
+                <Page />
+              </Layout>
+            );
+
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                element={
+                  route.publicOnly
+                    ? <PublicRoute>{element}</PublicRoute>
+                    : element
+                }
+              />
+            );
+          })}
+
+          {/* Private routes */}
+          {privateRoutes.map((route, index) => {
+            const Page = route.component;
+
+            let Layout;
+            if (route.layout === null) {
+              Layout = Fragment;
+            } else if (route.layout) {
+              Layout = route.layout;
+            } else {
+              Layout = DefaultLayout;
+            }
+
+            return (
+              <Route
+                key={`private-${index}`}
+                path={route.path}
+                element={
+                  <ProtectedRoute>
+                    <Layout>
+                      <Page />
+                    </Layout>
+                  </ProtectedRoute>
+                }
+              />
+            );
+          })}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
