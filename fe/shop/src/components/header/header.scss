@@ -1,0 +1,28 @@
+.header-wrapper {
+  width: 100wv;
+  background-color: #ededed;
+
+  .row{
+    font-size: 1.2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-hotline{
+    .link{
+        color: var(--text-color);
+        text-decoration: none;
+
+        &:hover{
+            color: var(--primary);
+        }
+    }
+  }
+
+  .header-login {
+    .button-login{
+        color: var(--text-color);
+        font-size: 1.2rem;
+    }
+  }
+}

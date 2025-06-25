@@ -1,54 +1,54 @@
-@import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
 
-:root{
-    --primary: rgb(33, 64, 154);
-    --black: #000;
-    --white: #fff;
-    --text-color: #333;
-
+:root {
+  --primary: rgb(33, 64, 154);
+  --black: #000;
+  --white: #fff;
+  --text-color: #333;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
 
-body{
-    font-optical-sizing: auto;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    text-rendering: optimizeSpeed;
-    color: var(--text-color);
+body {
+  font-optical-sizing: auto;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  color: var(--text-color);
 }
 
 .container {
-  max-width: 1170px;
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
   margin: auto;
 }
 
-.row{
+.row {
   display: flex;
   flex-wrap: wrap;
 }
 
-button, input, [tabindex]{
-    outline: none;
-    border: none;
+button,
+input,
+[tabindex] {
+  outline: none;
+  border: none;
 }
 
-a[href]{
-    color: var(--text-color);
-    text-decoration: none;
+i {
+  padding: 5px;
 }
 
 .col-6 {
@@ -74,4 +74,3 @@ a[href]{
   flex: 0 0 33.3333%;
   max-width: 33.3333%;
 }
-

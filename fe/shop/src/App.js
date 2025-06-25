@@ -1,9 +1,10 @@
-import { Fragment } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { publicRoutes, privateRoutes } from './routes';
-import { DefaultLayout } from './layouts';
-import ProtectedRoute from './routes/protectedRoute';
-import PublicRoute from './routes/publicRoute';
+import { Fragment } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { publicRoutes, privateRoutes } from "./routes";
+import { DefaultLayout } from "./layouts";
+import ProtectedRoute from "./routes/protectedRoute";
+import PublicRoute from "./routes/publicRoute";
+import "antd/dist/reset.css";
 
 function App() {
   return (
@@ -34,9 +35,11 @@ function App() {
                 key={index}
                 path={route.path}
                 element={
-                  route.publicOnly
-                    ? <PublicRoute>{element}</PublicRoute>
-                    : element
+                  route.publicOnly ? (
+                    <PublicRoute>{element}</PublicRoute>
+                  ) : (
+                    element
+                  )
                 }
               />
             );
