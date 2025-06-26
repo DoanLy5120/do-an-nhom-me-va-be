@@ -22,7 +22,7 @@ const LoginPage = () => {
       } else {
         sessionStorage.setItem("token", token);
       }
-      navigate("/info");
+      navigate("/");
     } catch (err) {
       setError("Đăng nhập thất bại");
     }
