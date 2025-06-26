@@ -22,7 +22,7 @@ const LoginPage = () => {
       } else {
         sessionStorage.setItem("token", token);
       }
-      navigate("/info");
+      navigate("/");
     } catch (err) {
       setError("Đăng nhập thất bại");
     }
@@ -43,10 +43,6 @@ const LoginPage = () => {
 
   return (
     <div className="login-container min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 to-blue-50 relative overflow-hidden">
-     
-      
-     
-
       {/* Main Form Container */}
       <div className="relative z-10 flex w-full max-w-7xl bg-white rounded-3xl overflow-hidden shadow-2xl">
         {/* Image Section */}
