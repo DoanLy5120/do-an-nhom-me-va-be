@@ -1,4 +1,10 @@
 .header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
   .header-top {
     font-size: 1.2rem;
     justify-content: space-between;
@@ -53,107 +59,109 @@
     }
   }
 
-  .header-search {
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  .header-next {
+    background-color: var(--primary);
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: var(--primary);
-      flex: 0 0 auto;
-      margin-right: 20px;
-    }
+    .header-search {
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    .search {
-      flex: 1;
-      max-width: 50%;
-      height: 40px;
-      margin-right: 20px;
-      margin-left: 50px;
+      .logo {
+        flex: 0 0 auto;
+      }
 
-      .ant-input-search {
+      .search {
+        flex: 1;
+        max-width: 50%;
         height: 40px;
+        margin-right: 20px;
+        margin-left: 50px;
 
-        .ant-input {
+        .ant-input-search {
           height: 40px;
-          line-height: 40px;
-          font-size: 1.6rem;
 
-          &:hover{
-            border: 1px solid --primary;
+          .ant-input {
+            height: 40px;
+            line-height: 40px;
+            font-size: 1.6rem;
+
+            &:hover {
+              border: 1px solid --primary;
+            }
+          }
+
+          .ant-btn {
+            height: 40px;
+            line-height: 40px;
+            font-size: 1.6rem;
+            background-color: #1836b2;
+          }
+        }
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 16px; // khoảng cách giữa cart và user
+
+        .cart,
+        .header-user {
+          display: flex;
+          align-items: center;
+        }
+
+        .cart {
+          position: relative;
+          margin-right: 20px;
+
+          .cart-link {
+            font-size: 24px;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+          }
+
+          span {
+            position: absolute;
+            top: -6px;
+            right: -10px;
+            background-color: var(--text-color);
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-weight: bold;
+            min-width: 20px;
+            text-align: center;
+            line-height: 1;
           }
         }
 
-        .ant-btn {
-          height: 40px;
-          line-height: 40px;
-          font-size: 1.6rem;
-          background-color: var(--primary);
-        }
-      }
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 16px; // khoảng cách giữa cart và user
-
-      .cart,
-      .header-user {
-        display: flex;
-        align-items: center;
-      }
-
-      .cart {
-        position: relative;
-        margin-right: 20px;
-
-        .cart-link {
-          font-size: 24px;
-          color: var(--text-color);
+        .header-user {
           display: flex;
           align-items: center;
-        }
 
-        span {
-          position: absolute;
-          top: -6px;
-          right: -10px;
-          background-color: var(--primary);
-          color: white;
-          font-size: 12px;
-          padding: 2px 6px;
-          border-radius: 50%;
-          font-weight: bold;
-          min-width: 20px;
-          text-align: center;
-          line-height: 1;
-        }
-      }
+          .header__account-button {
+            display: flex;
+            align-items: center;
+            background: none;
+            border: none;
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+          }
 
-      .header-user {
-        display: flex;
-        align-items: center;
-
-        .header__account-button {
-          display: flex;
-          align-items: center;
-          background: none;
-          border: none;
-          font: inherit;
-          color: inherit;
-          cursor: pointer;
-          padding: 0;
-          margin: 0;
-        }
-
-        p {
-          margin: 0 4px;
-          line-height: 1;
+          p {
+            margin: 0 4px;
+            line-height: 1;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #000;
+          }
         }
       }
     }
@@ -164,12 +172,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--primary);
 
     .header-menu {
       flex: 1;
       display: flex;
       justify-content: center;
       font-weight: 500;
+
+      .ant-menu {
+        background: transparent !important; // Không ghi đè
+        border-bottom: none; // Nếu không muốn gạch dưới
+      }
 
       .ant-menu-item-icon {
         font-size: 16px;
@@ -180,10 +194,29 @@
 
       .ant-menu-item {
         padding: 0 20px;
+        background: transparent;
       }
 
       .ant-menu-submenu-title {
-        padding: 0 20px;
+        padding: auto;
+        background: transparent;
+      }
+
+      .ant-menu-item:hover {
+        color: #1836b2;
+      }
+
+      .ant-menu-item-selected {
+        color: #1836b2;
+
+        .ant-menu-item-icon {
+          color: #1836b2;
+        }
+      }
+
+      .ant-menu-item:hover {
+        transform: translateY(-2px);
+        color: #1386b2;
       }
     }
   }

@@ -1,5 +1,6 @@
 import "./header.scss";
 import canhbaoImg from "../../assets/img/header/canhbao.png";
+import logo from "../../assets/img/header/logo.png"
 import { Button, Menu } from "antd";
 import { formatVND } from "../../utils";
 import { getCartItems } from "../../utils";
@@ -148,9 +149,11 @@ function Header() {
           </div>
         </div>
 
-        <div className="row">
-          <div className="header-search col-lg-9">
-            <div className="logo">LOGO</div>
+        <div className="row header-next">
+          <div className=" header-search col-lg-9">
+            <div className="logo">
+              <img src={logo} alt="logo" style={{width: "200px", height: "90px"}}/>
+            </div>
             <div className="search">
               <Search
                 placeholder="Nhập sản phẩm cần tìm"
@@ -232,8 +235,8 @@ function Header() {
           </div>
         </div>
 
-        <div className="row">
-          <div className="header-content col-lg-9">
+        <div className="row header-content">
+          <div className="col-lg-9">
             <div className="header-menu">
               <Menu
                 onClick={onClick}

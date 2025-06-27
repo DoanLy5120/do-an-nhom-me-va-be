@@ -3,7 +3,8 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 :root {
-  --primary: rgb(33, 64, 154);
+  --primary: rgb(151, 172, 232);
+  --main: rgb(244, 247, 255);
   --black: #000;
   --white: #fff;
   --text-color: #333;
@@ -26,6 +27,11 @@ body {
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   color: var(--text-color);
+}
+
+.page{
+  background: var(--main);
+  padding-top: 200px;
 }
 
 .container {
