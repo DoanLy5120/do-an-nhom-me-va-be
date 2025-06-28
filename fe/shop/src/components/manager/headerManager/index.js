@@ -1,6 +1,6 @@
-import "./headerManager.scss"
+import "./headerManager.scss";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { Menu } from "antd";
 import { Dropdown, Space } from "antd";
 import { FaEye, FaSellcast, FaChevronDown } from "react-icons/fa";
@@ -23,7 +23,6 @@ import {
 } from "react-icons/fa";
 import { SiGooglecloudstorage } from "react-icons/si";
 import { IoLogOut } from "react-icons/io5";
-
 
 const navbarManager = [
   {
@@ -145,7 +144,7 @@ const userItems = [
   {
     key: "2",
     label: <Link to="/login">ĐĂNG XUẤT</Link>,
-    icon: <IoLogOut />
+    icon: <IoLogOut />,
   },
 ];
 
@@ -153,7 +152,9 @@ function HeaderManager() {
   const navigate = useNavigate();
   const [isLoggedIn] = useState(false);
   //chuyển tab
-  const [current, setCurrent] = useState("manager");
+  const location = useLocation();
+  const currentPath = location.pathname.replace(/^\/|\/$/g, "");
+  const [current, setCurrent] = useState(currentPath);
   const onClick = (e) => {
     setCurrent(e.key);
     navigate(`/${e.key}/`);
@@ -180,11 +181,15 @@ function HeaderManager() {
         <div className="manager__header-owner">
           <span>
             <i className="fa-solid fa-question"></i>
-            <Link to="#" className="link">Hỗ trợ</Link>
+            <Link to="#" className="link">
+              Hỗ trợ
+            </Link>
           </span>
           <span>
             <i className="fa-solid fa-bell"></i>
-            <Link to="#" className="link">Thông báo</Link>
+            <Link to="#" className="link">
+              Thông báo
+            </Link>
           </span>
           {!isLoggedIn && (
             <Dropdown menu={{ items: userItems }}>
