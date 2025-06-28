@@ -29,7 +29,7 @@ body {
   color: var(--text-color);
 }
 
-.page{
+.page {
   background: var(--main);
   padding-top: 200px;
 }
@@ -42,6 +42,16 @@ body {
 .row {
   display: flex;
   flex-wrap: wrap;
+}
+
+.link {
+  color: var(--text-color);
+  text-decoration: none;
+  padding-left: 2px;
+
+  &:hover {
+    color: #6a59e6;
+  }
 }
 
 button,
