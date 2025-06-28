@@ -62,22 +62,37 @@
   .manager__header-menu {
     display: flex;
     justify-content: center;
+    background: var(--primary);
 
     .ant-menu {
-    display: flex !important;
-    justify-content: center;
-    padding: 0;
-
-    > .ant-menu-item,
-    > .ant-menu-submenu {
-      display: inline-flex !important;
-      align-items: center;
+      display: flex !important;
       justify-content: center;
-      gap: 6px;
-      padding: 0 50px !important; 
-      height: 50px; 
-      font-weight: 500;
+      padding: 0;
+      background: transparent;
+
+      > .ant-menu-item,
+      > .ant-menu-submenu {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 0 50px !important;
+        height: 50px;
+        font-weight: 600;
+      }
+
+      .ant-menu-item,
+      .ant-menu-submenu-title{
+        color: #fff;
+
+        &:hover{
+          color: #020f5a;
+        }
+      }
+
+      .ant-menu-item-selected{
+        color: #020f5a;
+      }
     }
-  }
   }
 }
