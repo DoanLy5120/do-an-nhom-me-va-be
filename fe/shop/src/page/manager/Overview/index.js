@@ -32,14 +32,14 @@ const SalesDashboard = () => {
   // Dữ liệu mẫu cho kết quả bán hàng hôm nay
   const todaySales = {
     invoices: {
-      count: 2,
-      amount: 35000,
+      count: 15,
+      amount: 3250000,
       label: "Hóa đơn",
     },
     returns: {
       count: 0,
       amount: 0,
-      label: "phiếu",
+      label: "Phiếu",
     },
   }
 
@@ -111,7 +111,7 @@ const SalesDashboard = () => {
             <Col>
               <span>DOANH THU THUẦN THÁNG NÀY </span>
               <Text strong style={{ color: "#1890ff", fontSize: "16px" }}>
-                ₫ {formatCurrency(35000)}
+                ₫ {formatCurrency(134000000)}
               </Text>
             </Col>
             <Col>

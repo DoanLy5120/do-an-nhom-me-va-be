@@ -16,17 +16,20 @@ import { Empty } from "antd"
  * - Format tooltip và trục Y theo định dạng tiền tệ Việt Nam
  */
 const RevenueChart = ({ type, period }) => {
-  // Tạo dữ liệu mẫu cho 28 ngày
-  const generateDailyData = () => {
-    return Array.from({ length: 28 }, (_, index) => {
-      const day = index + 1
+  // Các ngày có doanh thu cao nổi bật (để đánh dấu)
+  const highlightDays = [1, 2, 5, 7, 8, 9, 11, 12, 13, 15, 16, 17, 20, 23, 25, 27, 28];
+
+  // Hàm tạo dữ liệu doanh thu mẫu cho 31 ngày
+  const generateDailyData = () =>
+    Array.from({ length: 31 }, (_, i) => {
+      const day = i + 1;
+      const isHighlight = highlightDays.includes(day);
       return {
         day: day.toString().padStart(2, "0"),
-        revenue: day === 28 ? 35000 : Math.floor(Math.random() * 5000),
-        isHighlight: day === 28,
-      }
-    })
-  }
+        revenue: isHighlight ? Math.floor(50000000 + Math.random() * 30000000) : Math.floor(Math.random() * 10000000),
+        isHighlight,
+      };
+    });
 
   // Format tooltip
   const CustomTooltip = ({ active, payload, label }) => {
