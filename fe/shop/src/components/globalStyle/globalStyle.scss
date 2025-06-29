@@ -29,6 +29,12 @@ body {
   color: var(--text-color);
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .page {
   background: var(--main);
   padding-top: 200px;
@@ -37,6 +43,7 @@ body {
 .container {
   width: 100%;
   margin: auto;
+  background: var(--main);
 }
 
 .row {

@@ -199,7 +199,7 @@ function HeaderManager() {
               >
                 <Space size={1}>
                   <i className="fa-solid fa-user"></i>
-                  <p>Tài khoản</p>
+                  <p>BabyHub</p>
                   <FaChevronDown />
                 </Space>
               </button>
