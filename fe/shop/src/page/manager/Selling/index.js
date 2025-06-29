@@ -1,7 +1,7 @@
 import "./Selling.scss";
 import { Tabs } from "antd";
 import { useState, useEffect } from "react";
-import { Input } from "antd";
+import { Input, Radio } from "antd";
 import { Tooltip, Select } from "antd";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { TbTruckDelivery } from "react-icons/tb";
@@ -164,6 +164,9 @@ function Selling() {
   //tích điểm
   const [customerPoint, setCustomerPoint] = useState(0); // điểm hiện tại giả lập
   const [earnedPoint, setEarnedPoint] = useState(0);
+
+  //phương thức thanh toán
+  const [paymentMethod, setPaymentMethod] = useState("cash");
 
   //các item footer
   const tabItems = [
@@ -366,7 +369,7 @@ function Selling() {
                 {/* Customer Search */}
                 <div className="customer-search">
                   <Input
-                    placeholder="Tìm khách hàng (F4)"
+                    placeholder="Tìm khách hàng"
                     value={customerSearch}
                     onChange={(e) => handleCustomerSearch(e.target.value)}
                     prefix={<SearchOutlined />}
@@ -488,6 +491,21 @@ function Selling() {
                         <Text className="summary-amount">
                           {customerPoint} điểm
                         </Text>
+                      </Col>
+                    </Row>
+                    {/* Phương thức thanh toán */}
+                    <Row className="summary-row">
+                      <Col span={24}>
+                        <Radio.Group
+                          onChange={(e) => setPaymentMethod(e.target.value)}
+                          value={paymentMethod}
+                        >
+                          <Space direction="horizontal">
+                            <Radio value="cash">Tiền mặt</Radio>
+                            <Radio value="bank">Chuyển khoản</Radio>
+                            <Radio value="qr">Quét mã QR</Radio>
+                          </Space>
+                        </Radio.Group>
                       </Col>
                     </Row>
                   </Space>
